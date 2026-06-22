@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สถานที่ท่องเที่ยว</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style> body { font-family: 'Prompt', sans-serif; background-color: #f0f4f8; } </style>
+</head>
+<body class="pb-16">
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center py-5 px-10 max-w-[1400px] mx-auto">
+        <div class="flex gap-3">
+           <a href="https://github.com/x2Swww"><button class="bg-[#596376] text-white w-12 h-12 rounded-2xl shadow-sm flex items-center justify-center text-xl transition hover:scale-105"><i class="fa-regular fa-user"></i></button></a>
+        </div>
+        <button id="mobileMenuButton" class="md:hidden bg-transparent text-gray-700 p-2 rounded-lg">
+            <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+        <div class="hidden md:flex gap-10 font-semibold text-[17px] text-gray-800">
+            <a href="index.html" class="text-gray-500 hover:text-black transition">หน้าแรก</a>
+            <a href="destinations.html" class="border-b-4 border-black pb-1">สถานที่ท่องเที่ยว</a>
+            <a href="contact.html" class="text-gray-500 hover:text-black transition">ติดต่อเรา</a>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="md:hidden px-10 hidden">
+        <div class="flex flex-col gap-4 pb-4">
+            <a href="index.html" class="font-semibold text-gray-800">หน้าแรก</a>
+            <a href="destinations.html" class="font-semibold text-gray-800">สถานที่ท่องเที่ยว</a>
+            <a href="contact.html" class="font-semibold text-gray-800">ติดต่อเรา</a>
+        </div>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-10 mt-6">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold text-[#1a2e35] mb-3">6 สถานที่ท่องเที่ยวยอดนิยม และการเดินทาง</h1>
+            <p class="text-gray-500 text-lg">ปักหมุดที่เที่ยวภาคเหนือ ต้องไปสักครั้งในชีวิต!</p>
+        </div>
+
+        <!-- Grid 6 สถานที่ -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Place 1 -->
+            <div class="bg-white rounded-3xl p-4 shadow-sm hover:shadow-md transition">
+                <img src="https://s.isanook.com/tr/0/ud/188/944622/b00c338ed57a6eaa2bd3bc971d64d658.jpg" class="w-full h-56 object-cover rounded-2xl mb-4" alt="ดอยอินทนนท์">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">1. อุทยานแห่งชาติดอยอินทนนท์ (เชียงใหม่)</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">จุดสูงสุดของประเทศไทย สัมผัสอากาศหนาวเย็นตลอดปี ชมพระมหาธาตุเจดีย์นภเมทนีดลและนภพลภูมิสิริ และเส้นทางศึกษาธรรมชาติกิ่วแม่ปาน</p>
+                <div class="bg-[#f0f4f8] p-3 rounded-xl">
+                    <p class="text-xs font-bold text-[#61d4cb] mb-1"><i class="fa-solid fa-car"></i> การเดินทาง:</p>
+                    <p class="text-xs text-gray-600">ขับรถยนต์จากตัวเมืองเชียงใหม่ ใช้ทางหลวงหมายเลข 108 ไปทางอ.จอมทอง เลี้ยวขวาเข้าทางหลวง 1009</p>
+                </div>
+            </div>
+
+            <!-- Place 2 -->
+            <div class="bg-white rounded-3xl p-4 shadow-sm hover:shadow-md transition">
+                <img src="https://image-tc.galaxy.tf/wijpeg-delhne0vegyfldiq8p96j2p5b/poi-attractions-detail-page_og-image.jpg" class="w-full h-56 object-cover rounded-2xl mb-4" alt="วัดร่องขุ่น">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">2. วัดร่องขุ่น (เชียงราย)</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">วัดพุทธสุดอลังการที่ออกแบบและสร้างโดย อาจารย์เฉลิมชัย โฆษิตพิพัฒน์ โดดเด่นด้วยโบสถ์สีขาวบริสุทธิ์ ตกแต่งด้วยกระจกเงินแวววาว</p>
+                <div class="bg-[#f0f4f8] p-3 rounded-xl">
+                    <p class="text-xs font-bold text-[#61d4cb] mb-1"><i class="fa-solid fa-car"></i> การเดินทาง:</p>
+                    <p class="text-xs text-gray-600">ห่างจากตัวเมืองเชียงราย 12 กม. ใช้ถนนพหลโยธินสายเชียงราย-พะเยา อยู่ริมถนนใหญ่เดินทางสะดวก</p>
+                </div>
+            </div>
+
+            <!-- Place 3 -->
+            <div class="bg-white rounded-3xl p-4 shadow-sm hover:shadow-md transition">
+                <img src="https://cms.dmpcdn.com/travel/2021/10/05/9142d1f0-25b0-11ec-b894-cd1ae628e9c5_original.jpg" class="w-full h-56 object-cover rounded-2xl mb-4" alt="ปางอุ๋ง">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">3. ปางอุ๋ง (แม่ฮ่องสอน)</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">สวิตเซอร์แลนด์เมืองไทย ทะเลสาบกลางหุบเขาที่รายล้อมด้วยป่าสนยามเช้าจะมีไอหมอกลอยเหนือน้ำ บรรยากาศโรแมนติกสุดๆ</p>
+                <div class="bg-[#f0f4f8] p-3 rounded-xl">
+                    <p class="text-xs font-bold text-[#61d4cb] mb-1"><i class="fa-solid fa-car"></i> การเดินทาง:</p>
+                    <p class="text-xs text-gray-600">จากแม่ฮ่องสอน ใช้เส้นทางไปปางมะผ้า-ปาย เลี้ยวซ้ายเข้าบ้านมอกจำแป่ แนะนำให้ใช้รถสองแถวท้องถิ่น</p>
+                </div>
+            </div>
+
+            <!-- Place 4 -->
+            <div class="bg-white rounded-3xl p-4 shadow-sm hover:shadow-md transition">
+                <img src="https://cms.dmpcdn.com/travel/2020/12/29/d6c1cbc0-49c2-11eb-89e4-35f1a97d3869_original.jpg" class="w-full h-56 object-cover rounded-2xl mb-4" alt="ดอยสุเทพ">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">4. วัดพระธาตุดอยสุเทพ (เชียงใหม่)</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">ปูชนียสถานคู่บ้านคู่เมืองเชียงใหม่ ไหว้พระขอพรพระบรมธาตุเจดีย์สีทองอร่าม และชมวิวเมืองเชียงใหม่มุมสูงแบบพาโนรามา</p>
+                <div class="bg-[#f0f4f8] p-3 rounded-xl">
+                    <p class="text-xs font-bold text-[#61d4cb] mb-1"><i class="fa-solid fa-car"></i> การเดินทาง:</p>
+                    <p class="text-xs text-gray-600">นั่งรถแดงจากหน้า ม.เชียงใหม่ หรือสวนสัตว์เชียงใหม่ ขึ้นดอยประมาณ 30 นาที</p>
+                </div>
+            </div>
+
+            <!-- Place 5 -->
+            <div class="bg-white rounded-3xl p-4 shadow-sm hover:shadow-md transition">
+                <img src="https://cms.dmpcdn.com/travel/2020/08/27/f4cd5190-e822-11ea-8b4c-77a545c96ff7_original.jpg" class="w-full h-56 object-cover rounded-2xl mb-4" alt="ภูชี้ฟ้า">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">5. ภูชี้ฟ้า (เชียงราย)</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">จุดชมวิวพระอาทิตย์ขึ้นและทะเลหมอกที่สวยที่สุดแห่งหนึ่ง ลักษณะเป็นหน้าผายื่นออกไปในอากาศ มองเห็นวิวฝั่งประเทศลาว</p>
+                <div class="bg-[#f0f4f8] p-3 rounded-xl">
+                    <p class="text-xs font-bold text-[#61d4cb] mb-1"><i class="fa-solid fa-car"></i> การเดินทาง:</p>
+                    <p class="text-xs text-gray-600">จากเชียงราย ไปทางเทิง-ปางค่า ขับรถขึ้นเขาระมัดระวัง จอดรถที่ลานแล้วเดินเท้าขึ้นยอดภู</p>
+                </div>
+            </div>
+
+            <!-- Place 6 -->
+            <div class="bg-white rounded-3xl p-4 shadow-sm hover:shadow-md transition">
+                <img src="https://f.ptcdn.info/516/057/000/p8i8tlzo0UsY3PxF56-o.jpg" class="w-full h-56 object-cover rounded-2xl mb-4" alt="ม่อนแจ่ม">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">6. ม่อนแจ่ม (เชียงใหม่)</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">เที่ยวดอยบรรยากาศชิลๆ ชมแปลงดอกไม้ สวนสตรอว์เบอร์รี และนั่งกินหมูกระทะรับลมหนาวริมระเบียงที่พักแบบเต็นท์โดม</p>
+                <div class="bg-[#f0f4f8] p-3 rounded-xl">
+                    <p class="text-xs font-bold text-[#61d4cb] mb-1"><i class="fa-solid fa-car"></i> การเดินทาง:</p>
+                    <p class="text-xs text-gray-600">ขับรถจากเชียงใหม่มาทางอ.แม่ริม เลี้ยวเข้าทางหลวง 1096 มีป้ายบอกทางขึ้นม่อนแจ่มตลอดสาย</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section ที่พักแนะนำ -->
+        <div class="mt-16 bg-[#1a2e35] rounded-[40px] p-10 flex flex-col md:flex-row items-center gap-10">
+            <div class="w-full md:w-1/3">
+                <h2 class="text-3xl font-bold text-white mb-4">ที่พักแนะนำ</h2>
+                <p class="text-gray-300 text-sm mb-6">รวบรวมที่พักบรรยากาศดี ดีไซน์สวย ให้คุณพักผ่อนอย่างเต็มที่หลังจากการเดินทางท่องเที่ยว</p>
+                <button class="bg-[#61d4cb] text-[#1a2e35] font-bold rounded-full px-6 py-3 hover:bg-white transition"><a href="https://www.booking.com/region/th/northern-thailand.th.html">ค้นหาที่พักเพิ่มเติม</a></button>
+            </div>
+            <div class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-white/10 rounded-2xl p-3 flex gap-4 items-center">
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover rounded-xl" alt="Hotel 1">
+                    <div class="text-white">
+                        <h4 class="font-bold">รีสอร์ทกลางดอยเชียงใหม่</h4>
+                        <p class="text-xs text-teal-300"><i class="fa-solid fa-star"></i> 4.9 / 5.0</p>
+                    </div>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 flex gap-4 items-center">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 object-cover rounded-xl" alt="Hotel 2">
+                    <div class="text-white">
+                        <h4 class="font-bold">บูทีคโฮเทล เชียงราย</h4>
+                        <p class="text-xs text-teal-300"><i class="fa-solid fa-star"></i> 4.8 / 5.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="max-w-[1400px] mx-auto px-10 mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-600">
+        จัดทำโดย นายวรินทร เทพเซ่งหลี027 และนายฮัสซัน รบเมือง033 สาขาเทคโนโลยีสารสนเทศ ปวช.1 ห้อง1
+    </footer>
+
+    <script>
+        (function(){
+            const btn = document.getElementById('mobileMenuButton');
+            const menu = document.getElementById('mobileMenu');
+            if(btn && menu) btn.addEventListener('click', ()=> menu.classList.toggle('hidden'));
+        })();
+    </script>
+
+</body>
+</html>
