@@ -8,9 +8,89 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        * { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #61d4cb #f0f4f8; }
+        
         body { font-family: 'Prompt', sans-serif; background-color: #f0f4f8; }
         /* ซ่อน Scrollbar สำหรับแนวนอน */
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        /* WebKit Scrollbar Styling */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f0f4f8; }
+        ::-webkit-scrollbar-thumb { background: #61d4cb; border-radius: 5px; transition: background 0.3s; }
+        ::-webkit-scrollbar-thumb:hover { background: #5dc2b8; }
+        
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Slide In From Left */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Slide In From Right */
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Float Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Scale Animation */
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        /* Smooth Scroll Up */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Scroll Scale Effect */
+        @keyframes scrollScale {
+            from { opacity: 0; transform: scale(0.95) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .animate-slide-left { animation: slideInLeft 0.8s ease-out forwards; }
+        .animate-slide-right { animation: slideInRight 0.8s ease-out forwards; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+        .animate-slide-up { animation: slideUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .animate-scroll-scale { animation: scrollScale 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        /* Parallax Effect */
+        .parallax { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+        
+        /* Smooth Transitions */
+        a, button { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        
+        /* Scroll Reveal Effect */
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s; }
+        .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+        
+        /* Smooth Ease Transitions */
+        .ease-scroll { transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        
+        /* Opacity Delay Classes */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
     </style>
 </head>
 <body class="pb-10">
@@ -36,7 +116,7 @@
 
     <div class="max-w-[1400px] mx-auto px-10">
         <!-- Hero Banner -->
-        <div class="relative bg-gradient-to-r from-[#81e4d8] to-[#c7f5f0] rounded-[40px] p-12 mt-4 flex overflow-hidden shadow-sm min-h-[400px]">
+        <div class="relative bg-gradient-to-r from-[#81e4d8] to-[#c7f5f0] rounded-[40px] p-12 mt-4 flex overflow-hidden shadow-sm min-h-[400px] animate-fade-in">
             <!-- จุดตกแต่งพื้นหลัง -->
             <div class="absolute top-10 left-1/4 w-2 h-2 bg-white rounded-full opacity-70"></div>
             <div class="absolute top-20 left-1/2 w-3 h-3 bg-white rounded-full opacity-60"></div>
@@ -45,7 +125,7 @@
             <i class="fa-solid fa-heart absolute top-20 right-[30%] text-pink-400 text-xl"></i>
 
             <!-- เนื้อหาซ้าย -->
-            <div class="w-full md:w-3/5 z-10 flex flex-col justify-center">
+            <div class="w-full md:w-3/5 z-10 flex flex-col justify-center animate-slide-left">
                 <div class="flex items-center gap-2 mb-4">
                     <i class="fa-solid fa-mountain-sun text-pink-500 text-3xl"></i>
                     <span class="text-pink-500 font-bold text-xl tracking-wider">ภาคเหนือของไทย</span>
@@ -70,10 +150,102 @@
                             const btn = document.getElementById('mobileMenuButton');
                             const menu = document.getElementById('mobileMenu');
                             if(btn && menu) btn.addEventListener('click', ()=> menu.classList.toggle('hidden'));
+                            
+                            // Intersection Observer สำหรับ Scroll Animation
+                            const observer = new IntersectionObserver((entries) => {
+                                entries.forEach(entry => {
+                                    if(entry.isIntersecting) {
+                                        entry.target.classList.add('animate-fade-in');
+                                        observer.unobserve(entry.target);
+                                    }
+                                });
+                            }, { threshold: 0.1 });
+                            
+                            // สำหรับ Cards และ Elements
+                            document.querySelectorAll('.card-hover, [data-animate]').forEach(el => {
+                                if(!el.classList.contains('animate-fade-in')) {
+                                    el.style.opacity = '0';
+                                    observer.observe(el);
+                                }
+                            });
+                            
+                            // Smooth Scroll Reveal for cards on scroll
+                            const revealObserver = new IntersectionObserver((entries) => {
+                                entries.forEach(entry => {
+                                    if(entry.isIntersecting) {
+                                        entry.target.classList.add('revealed');
+                                        revealObserver.unobserve(entry.target);
+                                    }
+                                });
+                            }, { threshold: 0.15 });
+                            
+                            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                                revealObserver.observe(el);
+                            });
+                            
+                            // Smooth Scroll easing function
+                            function smoothScroll(target, duration = 800) {
+                                const startPosition = window.pageYOffset;
+                                const targetElement = document.querySelector(target);
+                                if (!targetElement) return;
+                                
+                                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 100;
+                                const distance = targetPosition - startPosition;
+                                let start = null;
+                                
+                                function easeInOutCubic(t) {
+                                    return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+                                }
+                                
+                                function animation(currentTime) {
+                                    if (start === null) start = currentTime;
+                                    const elapsed = currentTime - start;
+                                    const progress = Math.min(elapsed / duration, 1);
+                                    window.scrollBy(0, distance * (easeInOutCubic(progress) - (progress > 0 ? easeInOutCubic(progress - 0.01) : 0)));
+                                    if (progress < 1) {
+                                        requestAnimationFrame(animation);
+                                    }
+                                }
+                                
+                                requestAnimationFrame(animation);
+                            }
+                            
+                            // Parallax effect สำหรับ รูปภาพ
+                            let ticking = false;
+                            window.addEventListener('scroll', () => {
+                                if (!ticking) {
+                                    window.requestAnimationFrame(() => {
+                                        const scrolled = window.pageYOffset;
+                                        const parallaxElements = document.querySelectorAll('[data-parallax]');
+                                        parallaxElements.forEach(el => {
+                                            const speed = el.getAttribute('data-parallax') || 0.5;
+                                            el.style.transform = `translateY(${scrolled * speed}px)`;
+                                        });
+                                        ticking = false;
+                                    });
+                                    ticking = true;
+                                }
+                            });
+                            
+                            // Scroll scale effect for cards
+                            const scaleObserver = new IntersectionObserver((entries) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        const rect = entry.target.getBoundingClientRect();
+                                        const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                                        const scale = Math.max(0.95, Math.min(1, 0.95 + scrollPercent * 0.05));
+                                        entry.target.style.transform = `scale(${scale})`;
+                                    }
+                                });
+                            }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+                            
+                            document.querySelectorAll('.card-hover').forEach(el => {
+                                scaleObserver.observe(el);
+                            });
                         })();
                     </script>
             <!-- รูปภาพขวา  -->
-            <div class="absolute -right-10 -bottom-10 w-[55%] h-[120%] hidden md:block">
+            <div class="absolute -right-10 -bottom-10 w-[55%] h-[120%] hidden md:block animate-slide-right">
                 <img src="https://roijang.com/wp-content/uploads/2023/01/%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%89%E0%B8%A2%E0%B8%A7%E0%B8%A0%E0%B8%B2%E0%B8%84%E0%B9%80%E0%B8%AB%E0%B8%99%E0%B8%B7%E0%B8%AD.jpg" alt="North Thailand Girl" class="w-full h-full object-cover rounded-tl-[100px] shadow-2xl border-8 border-white/20" style="clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);">
             </div>
         </div>
@@ -83,7 +255,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-10">
             
             <!-- Column 1: สถานที่ฮิต -->
-            <div class="lg:col-span-3">
+            <div class="lg:col-span-3 animate-fade-in delay-200 scroll-reveal">
                 <h3 class="text-2xl font-bold text-black mb-4 flex items-center gap-2">สถานที่ฮิต <i class="fa-solid fa-chevron-right text-sm"></i></h3>
                 <div class="flex gap-4 mb-4">
                     <!-- Card 1 -->
@@ -102,10 +274,13 @@
                     </div>
                 </div>
                 <a href="destinations.html" class="block w-full bg-white text-center py-3 rounded-2xl font-bold shadow-sm hover:bg-gray-50 transition">ดูเพิ่มเติม</a>
+                <div class="mt-2">
+                    <a href="test.html" class="block w-full bg-white text-center py-3 rounded-2xl font-bold shadow-sm hover:bg-gray-50 transition">เวอร์ชั่นเปลี่ยนธีม</a>
+                </div>
             </div>
 
             <!-- Column 2: ค้นหายอดนิยม -->
-            <div class="lg:col-span-5 pl-0 lg:pl-6">
+            <div class="lg:col-span-5 pl-0 lg:pl-6 animate-fade-in delay-300 scroll-reveal">
                 <h3 class="text-2xl font-bold text-black mb-4">บทนำเสนอ</h3>
                 <div class="flex gap-4">
                     <!-- ฝั่งปุ่มค้นหา -->
@@ -136,18 +311,18 @@
             </div>
 
             <!-- Column 3: ไฮไลท์การเดินทาง -->
-            <div class="lg:col-span-4 flex flex-col gap-3">
+            <div class="lg:col-span-4 flex flex-col gap-3 animate-fade-in delay-400 scroll-reveal">
                 <div class="mt-10"></div>
                 <!-- List Item 1 -->
-                <div class="bg-white rounded-3xl p-4 flex items-center gap-4 shadow-sm">
-                    <div class="text-[40px] font-black text-[#1acbc3] px-2 leading-none" style="text-shadow: 2px 2px 0px #000;">01</div>
+                <div class="bg-white rounded-3xl p-4 flex items-center gap-4 shadow-sm card-hover">
+                    <div class="text-[40px] font-black text-[#1acbc3] px-2 leading-none animate-float" style="text-shadow: 2px 2px 0px #000;">01</div>
                     <div>
                         <h4 class="font-bold text-gray-900 text-lg">สัมผัสธรรมชาติ</h4>
                         <p class="text-xs text-gray-500 leading-tight">ภูเขาสูง ทะเลหมอกยามเช้า และอากาศเย็นสบายตลอดปีที่หาไม่ได้จากที่ไหน</p>
                     </div>
                 </div>
                 <!-- List Item 2 -->
-                <div class="bg-white rounded-3xl p-4 flex items-center gap-4 shadow-sm">
+                <div class="bg-white rounded-3xl p-4 flex items-center gap-4 shadow-sm card-hover">
                     <div class="bg-[#8bd1cb] text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl flex-shrink-0 border-2 border-white outline outline-2 outline-[#8bd1cb]"><i class="fa-solid fa-vihara"></i></div>
                     <div>
                         <h4 class="font-bold text-gray-900 text-lg">ศิลปวัฒนธรรม</h4>
@@ -155,7 +330,7 @@
                     </div>
                 </div>
                 <!-- List Item 3 -->
-                <div class="bg-white rounded-3xl p-4 flex items-center gap-4 shadow-sm">
+                <div class="bg-white rounded-3xl p-4 flex items-center gap-4 shadow-sm card-hover">
                     <div class="text-[40px] text-[#ff7db6] px-2 leading-none"><i class="fa-solid fa-bowl-food" style="-webkit-text-stroke: 1.5px black;"></i></div>
                     <div>
                         <h4 class="font-bold text-gray-900 text-lg">อาหารพื้นเมือง</h4>
